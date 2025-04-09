@@ -44,7 +44,7 @@ echo "rungrok="\$\(./ngrok tcp 5900\)" & sudo qemu-system-x86_64 \
   -cpu core2duo \
   -m 4G \
   -smp cores=2 \
-  -cdrom Win10.iso \
+  -cdrom win8.iso \
   -boot d \
   -vga vmware \
   -device e1000,netdev=n0 \
