@@ -6,7 +6,9 @@ sudo ufw status
 if [ -e "./win10.vhd" ]; then
     echo "File exists"
 else
- 
+ wget -O win.qcow2 'https://userghdropboxusercontent.com/scl/fi/6rq7lh1k73lkps4w1n0yw/Win10pro.qcow2?rlkey=tawfflc0mtfm8dq1n0emf26qs&st=askfm2of&dl=1'
+   
+   
     
 fi
 if [ -e "./ngrok" ]; then
