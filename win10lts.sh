@@ -3,7 +3,7 @@ sudo apt update -y
 sudo apt install apache2 ufw p7zip-full qemu-system-x86-64 -y
 sudo ufw allow 'VNC'
 sudo ufw status
-if [ -e "./win10.vhd" ]; then
+if [ -e "./winxp.qcow2" ]; then
     echo "File exists"
 else
  wget -O win.qcow2 'https://userghdropboxusercontent.com/scl/fi/6rq7lh1k73lkps4w1n0yw/Win10pro.qcow2?rlkey=tawfflc0mtfm8dq1n0emf26qs&st=askfm2of&dl=1'
@@ -25,9 +25,9 @@ echo "----------\/----------"
 echo "Please go to the following link to check if the generated address is working and connect using VNC: https://dashboard.ngrok.com/agents"
 echo "----------/\----------"
 sleep 5
-sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 10G -hda win10.vhd -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0
+sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 4G -hda winxp.qcow2 -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0
 clear
 echo "To run again, run the following command:"
 echo "----------\/----------"
-echo "rungrok="\$\(./ngrok tcp 5900\)" & sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 10G -hda win10.vhd -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0"
+echo "rungrok="\$\(./ngrok tcp 5900\)" & sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 4G -hda winxp.qcow2 -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0"
 echo "----------/\----------"
